@@ -1,0 +1,706 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+/* CSS variables */
+:root {
+  --header-height: 3.5rem;
+
+  --color-white: hsl(252, 30%, 100%);
+  --color-light: hsl(252, 30%, 92%);
+  --color-gray: hsl(252, 15%, 65%);
+  --color-primary: hsl(352, 75%, 60%);
+  --color-dark: hsl(252, 30%, 17%);
+
+  /* Font */
+  --body-font: "Rubik", sans-serif;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: . 938rem;
+  --small-font-size: 0.813rem;
+
+  /* Font weight */
+  --font-medium: 400;
+  --font-semi-bold: 600;
+
+  /* Margins Bottom */
+  --m-0-5: 0.5rem;
+  --m-0-75: 0.75rem;
+  --m-1: 1rem;
+  --m-1-5: 1.5rem;
+  --m-2: 2rem;
+  --m-2-5: 2.5rem;
+
+  /* Card padding */
+  --card-padding: 1.9rem 0.95rem;
+
+  /* Border radius */
+  --border-radius: 1.25rem;
+
+  /* Box shadow */
+  --box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+}
+
+/*Base*/
+
+ {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.7;
+  font-weight: var(--font-medium);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-semi-bold);
+}
+h1 {
+  font-size: var(--h1-font-size);
+}
+h2 {
+  font-size: var(--h2-font-size);
+}
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+/*Layout*/
+
+.container {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.padd-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--color-light);
+  position: fixed;
+  top: 0px;
+  left: 0;
+  z-index: 100;
+}
+.nav {
+  height: calc(var(--header-height)+1.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 100px;
+  column-gap: 3rem;
+  //flex-wrap: wrap;
+}
+
+.nav-logo {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  letter-spacing: 0.125rem;
+  position: relative;
+}
+
+.nav-logo::after {
+  position: absolute;
+  content: ;
+}
+.nav-list {
+  display: flex;
+  column-gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-btns {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.change-theme {
+  color: var(--color-dark);
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.nav-toggle {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.nav-toggle {
+  display: none;
+}
+/*.active-link {
+  position: relative;
+}
+.active-link::before {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 45%;
+  width: 0.3rem;
+  height: 0.3rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}*/
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Dark Mode - Nav Bar */
+body.dark-mode .nav {
+  background-color: #1c1c1c;
+}
+
+body.dark-mode .nav-link {
+  color: #ffffff;
+}
+
+body.dark-mode .nav-link.active-link {
+  color: #f44336; /* Red color for active link */
+}
+
+body.dark-mode .project-item {
+  background-color: #333333;
+}
+
+/* You can adjust other elements' styles to match your dark mode theme */
+
+.active-link {
+  position: relative;
+  transition: all 0.3s ease; /* This ensures smooth transition for the red dot */
+}
+
+.active-link::before {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%; /* Adjusted to center */
+  transform: translateX(-50%); /* Centers the dot under the link */
+  width: 0.3rem;
+  height: 0.3rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  transition: all 0.3s ease; /* This ensures smooth transition for the red dot */
+}
+
+/* Home */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+}
+
+.container .intro img {
+  width: 100%;
+  max-width: 350px; /* Image size */
+  height: auto;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.info {
+  max-width: 700px; /* Limit the width of the text */
+  display: flex;
+  flex-direction: column; /* Ensure text inside is column-based */
+}
+
+.info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.info span {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.social-icons li {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons i {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.social-icons span {
+  font-size: 1rem;
+}
+
+/* Scroll Down Styling */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-size: 1.2rem;
+}
+
+.scroll-down .mouse-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-down .mouse {
+  width: 20px;
+  height: 30px;
+  border: 2px solid var(--color-dark);
+  border-radius: 50px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.scroll-down .mouse .wheel {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-dark);
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    top: 5px;
+  }
+  50% {
+    top: 15px;
+  }
+  100% {
+    top: 5px;
+  }
+}
+
+/* Responsive for small screens */
+@media (max-width: 700px) {
+  .intro {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center; /* Center text */
+  }
+
+  .intro img {
+    max-width: 100%; /* Ensure image takes full width */
+    margin-top: 20px;
+    margin-bottom: 10px; /* Add spacing between image and text */
+  }
+
+  .info {
+    max-width: 100%; /* Allow text to take full width */
+    text-align: center; /* Center align text */
+  }
+}
+/* Skills Section */
+.skills {
+  padding: 4rem 0;
+  background-color: var(--color-light);
+}
+
+.skills h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-item {
+  background-color: var(--color-white);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  color: var(--color-gray);
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.skill-item:hover {
+  color: var(--color-secondary);
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.skill-item i {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.skill-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.skill-item p {
+  font-size: 1rem;
+  color: var(--color-gray);
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .skills h2 {
+    font-size: 1.75rem;
+  }
+
+  .skill-item i {
+    font-size: 2rem;
+  }
+}
+/* project */
+.project {
+  padding: 50px 0;
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.project-item {
+  position: relative;
+  flex: 1 1 calc(50% - 20px); /* Default: 2 items per row */
+  max-width: calc(50% - 20px); /* Default: 2 items per row */
+  overflow: hidden;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 7, 212, 0.1),
+    rgba(64, 102, 105, 0.8)
+  ); /* Semi-transparent gradient */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.project-image {
+  height: 290px;
+  width: 100%; /* Ensure the image container takes the full width*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-image img {
+  width: 90%; /* Image will take up 90% of the container's width */
+  height: 90%; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensures the image fits within the container without cropping */
+}
+
+/* Hover and Detail Styling */
+.project-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.project-details p {
+  margin-bottom: 20px;
+}
+
+.project-details .btn {
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.project-details .btn:hover {
+  background-color: #ff4500;
+}
+
+/* Hover Effect */
+.project-item:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-item:hover .project-details {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .project-item {
+    flex: 1 1 calc(50% - 20px); /* 2 items per row on medium screens */
+    max-width: calc(
+      50% - 20px
+    ); /* Maintain the 2 items per row on medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .project-item {
+    flex: 1 1 100%; /* 1 item per row on tablet-sized screens */
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .project-item {
+    flex: 1 1 100%; /* 1 item per row on very small screens */
+    max-width: 100%;
+  }
+}
+//Education
+.container .education-container {
+  display: flex;
+  gap: 50px;
+}
+
+.inst-info {
+  background-color: var(--color-white);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  color: var(--color-gray);
+  /* transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; */
+}
+
+.inst-info h1 {
+  margin: 0; /* Remove default margins from h1 */
+  font-size: 24px; /* Adjust the size to fit better */
+}
+
+.inst-info img {
+  max-width: 50px; /* Control the size of the logo */
+  height: auto;
+}
+
+.education {
+  display: flex;
+  align-items: center; /* Aligns the items vertically in the center */
+  gap: 5px; /* Adds space between the name and logo */
+}
+
+.institution-name {
+  font-size: 24px; /* Adjust the size of the institution name */
+  margin: 0; /* Remove default margin from h1 */
+}
+
+.institution-logo {
+  height: 40px; /* Adjust the height of the logo */
+  width: auto; /* Maintain aspect ratio */
+}
+.institution-name {
+  display: flex;
+  align-items: center;
+}
+/* Education Section */ /* Education Section */
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  padding-left: 10px; /* Space for the vertical line */
+}
+
+.education-item {
+  position: relative;
+  padding-left: 0px; /* Space for the circle and line */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.education-item::before {
+  content: "";
+  position: absolute;
+  top: -5px; /* Align circle with the top */
+  left: -6px; /* Position the circle at the start */
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(76, 81, 175); /* Circle color */
+}
+
+.education-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 2px;
+  background-color: rgb(76, 81, 175); /* Vertical line color */
+  height: 100%;
+}
+
+.institution {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.institution-logo {
+  width: 80px;
+  height: 80px;
+  margin-right: 50px;
+}
+
+.institution-name {
+  font-size: 1.5em;
+  color: #2a2a2a;
+  margin-left: 20px;
+  /* margin: 0; */
+}
+
+.degree-name {
+  font-size: 1em;
+  color: #777;
+  margin: 0px 20px 0;
+}
+
+.timeline {
+  font-size: 1em;
+  color: #777;
+  margin: 0px 20px 0;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .education-container {
+    padding-left: 20px; /* Adjust padding on small screens */
+  }
+
+  .education-item {
+    padding-left: 20px;
+  }
+
+  .institution-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .institution-name {
+    font-size: 1.2em;
+  }
+
+  .degree-name,
+  .timeline {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-container {
+    padding-left: 10px; /* Adjust padding for extra small screens */
+  }
+
+  .education-item {
+    padding-left: 10px;
+  }
+
+  .institution-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .institution-name {
+    font-size: 1.1em;
+  }
+
+  .degree-name,
+  .timeline {
+    font-size: 0.8em;
+  }
+}
