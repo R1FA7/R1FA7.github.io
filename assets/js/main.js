@@ -22,6 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  //remove hint 
+  window.addEventListener('scroll', function () {
+    const scrollHint = document.querySelector('.scroll-down');
+    if (window.scrollY > 10) {
+      scrollHint.style.opacity = '0';
+      scrollHint.style.pointerEvents = 'none';
+    } else {
+      scrollHint.style.opacity = '1';
+      scrollHint.style.pointerEvents = 'auto';
+    }
+  });
+
 
   // Call scroll to update active link based on scroll position
   window.addEventListener("scroll", setActiveLinkOnScroll);
