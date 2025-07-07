@@ -363,7 +363,7 @@ body.dark-mode .project-item {
 
   .info {
     max-width: 100%;
-    text-align: center;
+    text-align: left;
   }
 }
 /* Skills Section */
