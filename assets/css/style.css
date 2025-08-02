@@ -49,6 +49,7 @@
   box-sizing: border-box;
 }
 
+/* Base styles for body, links, and images */
 body,
 button,
 input,
@@ -84,23 +85,24 @@ h2,
 h3 {
   font-weight: var(--font-semi-bold);
 }
+
 h1 {
   font-size: var(--h1-font-size);
 }
+
 h2 {
   font-size: var(--h2-font-size);
 }
+
 h3 {
   font-size: var(--h3-font-size);
 }
 
-/*Layout*/
-
+/* Layout */
 .container {
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
-  //overflow: hidden;
 }
 
 .padd-15 {
@@ -116,14 +118,14 @@ h3 {
   left: 0;
   z-index: 100;
 }
+
+/* Nav Layout */
 .nav {
-  height: calc(var(--header-height)+1.5rem);
+  height: calc(var(--header-height) + 1.5rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 100px;
   column-gap: 3rem;
-  //flex-wrap: wrap;
 }
 
 .nav-logo {
@@ -133,14 +135,9 @@ h3 {
   position: relative;
 }
 
-.nav-logo::after {
-  position: absolute;
-  content: ;
-}
 .nav-list {
   display: flex;
   column-gap: 3rem;
-  flex-wrap: wrap;
 }
 
 .nav-link {
@@ -158,19 +155,40 @@ h3 {
   column-gap: 1rem;
 }
 
-.change-theme {
-  color: var(--color-dark);
-  font-size: 1.15rem;
+/* Hamburger icon */
+.nav-toggle {
+  font-size: 1.5rem;
   cursor: pointer;
+  display: none; /* Hidden by default */
 }
 
-.nav-toggle {
-  font-size: 1.2rem;
-  cursor: pointer;
+/* For small screens */
+@media screen and (max-width: 768px) {
+  /* Hide the nav list by default */
+  .nav-list {
+    display: none; /* Hide nav items */
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    background-color: var(--color-light);
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Show the hamburger icon */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* When active class is added, show the nav items */
+  .nav-menu.active .nav-list {
+    display: flex; /* Show nav items */
+  }
 }
-.nav-toggle {
-  display: none;
-}
+
 /*.active-link {
   position: relative;
 }
@@ -342,6 +360,23 @@ body.dark-mode .project-item {
   }
   100% {
     top: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column; /* Stack them vertically */
+    text-align: center;
+  }
+
+  .intro img {
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+
+  .info {
+    max-width: 100%;
+    text-align: left;
   }
 }
 
@@ -750,4 +785,23 @@ body.dark-mode .project-item {
   .timeline {
     font-size: 0.8em;
   }
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer .container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
 }

@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+    document.getElementById('nav-toggle').addEventListener('click', function() {
+    document.getElementById('nav-menu').classList.toggle('active');
+  });
+
   //remove hint 
   window.addEventListener('scroll', function () {
     const scrollHint = document.querySelector('.scroll-down');
