@@ -9,6 +9,7 @@
   --color-light: hsl(252, 30%, 92%);
   --color-gray: hsl(252, 15%, 65%);
   --color-primary: hsl(352, 75%, 60%);
+  --color-blue: hsl(210, 90%, 55%);
   --color-dark: hsl(252, 30%, 17%);
 
   /* Font */
@@ -146,7 +147,7 @@ h3 {
 }
 
 .nav-link:hover {
-  color: var(--color-primary);
+  color: var(--color-blue);
 }
 
 .nav-btns {
@@ -227,6 +228,7 @@ body.dark-mode .project-item {
 
 .active-link {
   position: relative;
+  color: var(--color-blue);
   transition: all 0.3s ease;
 }
 
@@ -236,9 +238,9 @@ body.dark-mode .project-item {
   bottom: -0.75rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 0.3rem;
+  width: 4rem;
   height: 0.3rem;
-  background-color: var(--color-primary);
+  background-color: var(--color-blue);
   border-radius: 50%;
   transition: all 0.3s ease;
 }
