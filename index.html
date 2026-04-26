@@ -73,9 +73,11 @@
             <div class="info">
               <h1>Md Minhazul Kabir Rifat</h1>
               <span>
-                I am an undergraduate student in Computer Science and
-                Engineering at Chittagong University of Engineering & Technology
-                (CUET). I have developed a range of projects across mobile, web,
+                I am a Computer Science and Engineering graduate from Chittagong 
+                University of Engineering & Technology (CUET), graduating in 2025.
+                I am currently working as a <strong>Software Engineer</strong>, 
+                focusing on full-stack development and AI-driven solutions.
+                I have developed a range of projects across mobile, web,
                 and desktop platforms, combining practical skills with academic
                 knowledge in areas like machine learning and software
                 development. I have solved over 1500 problems across various
@@ -127,34 +129,34 @@
             <div class="skill-item">
               <i class="lni lni-pagination"></i>
               <h3>Languages</h3>
-              <p>C++, JavaScript, C, Python, Dart</p>
+              <p>C++, JavaScript, TypeScript, Python, Dart</p>
             </div>
             <!-- Frontend Skill -->
             <div class="skill-item">
               <i class="lni lni-code-1"></i>
               <h3>Frontend</h3>
-              <p>HTML, CSS, React, Tailwind CSS, Flutter</p>
+              <p>React.js, Next.js, Tailwind CSS, Electron, Flutter, HTML, CSS</p>
             </div>
 
             <!-- Backend Skill -->
             <div class="skill-item">
               <i class="lni lni-database-2"></i>
               <h3>Backend</h3>
-              <p>Node.js, Express, MongoDB, SQLite, Firebase</p>
+              <p>FastAPI, Node.js, Express.js, SQLAlchemy, MongoDB, SQL Server, SQLite, Firebase, Redis, Celery</p>
             </div>
 
             <!-- Design Skill -->
             <div class="skill-item">
               <i class="lni lni-monitor-code"></i>
               <h3>Machine Learning</h3>
-              <p>Huggingface, Pandas, scikit-learn, PyTorch</p>
+              <p>Huggingface, Pandas, scikit-learn, PyTorch, FastMCP</p>
             </div>
 
             <!-- Other Skill -->
             <div class="skill-item">
               <i class="lni lni-gears-3"></i>
               <h3>Others</h3>
-              <p>Git, Github, LaTeX</p>
+              <p>Git, Github, Docker, LaTeX</p>
             </div>
           </div>
         </div>
@@ -404,6 +406,27 @@
             <div class="education-item">
               <div class="institution">
                 <h1 class="institution-name">
+                  Advancing Subjectivity Detection in Bengali News Articles Using Transformer Models with POS-Aware Features
+                </h1>
+                <img
+                  class="institution-logo"
+                  src="assets/img/conf.png"
+                  alt="Institution Logo"
+                />
+              </div>
+              <div class="degree-details">
+                <a
+                  class="degree-name"
+                  href="https://aclanthology.org/2025.banglalp-1.11/"
+                  target="_blank"
+                  >Paper Link</a
+                >
+                <p class="timeline">2025</p>
+              </div>
+            </div>
+            <div class="education-item">
+              <div class="institution">
+                <h1 class="institution-name">
                   A Transformer and LLM-Based Ensemble Approach for Fake News
                   Detection in Dravidian
                 </h1>
@@ -450,7 +473,7 @@
       </section>
       <footer class="footer">
         <div class="container">
-          <p>&copy; 2025 Md Minhazul Kabir Rifat. All rights reserved.</p>
+          <p>&copy; <span id="year"></span> Md Minhazul Kabir Rifat. All rights reserved.</p>
         </div>
       </footer>
     </main>
@@ -459,5 +482,8 @@
 
     <!--js-->
     <script src="src/js/main.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
