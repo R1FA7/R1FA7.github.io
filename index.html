@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatiable" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--CSS-->
     <link rel="stylesheet" href="src/css/style.css" />
@@ -54,14 +54,13 @@
             </li>
           </ul>
         </div>
-        <!-- <div class="nav-btns">
-          <i class="lni lni-paddle change-theme" id="theme-button"></i>
+        <div class="nav-btns">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="lni lni-sun-1" id="theme-icon"></i>
+          </button>
           <div class="nav-toggle" id="nav-toggle">
-            <i class="lni lni-dashboard-square-1"></i>
+            <i class="lni lni-menu-hamburger-1"></i>
           </div>
-        </div> -->
-        <div class="nav-toggle" id="nav-toggle">
-          <i class="lni lni-menu-hamburger-1"></i>
         </div>
       </nav>
     </header>
@@ -308,7 +307,7 @@
           <div class="education-container">
             <div class="education-item">
               <div class="institution">
-                <h1 class="institution-name">Trickcel <span style="font-size: 0.5em; color: #464545; position: relative; bottom: -0.5em; left: 0.2em">Remote</span></h1>
+                <h1 class="institution-name">Trickcel <span class="badge-remote">Remote</span></h1>
                 <img
                   class="institution-logo"
                   src="assets/img/trickcel.svg"
@@ -507,8 +506,5 @@
 
     <!--js-->
     <script src="src/js/main.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>

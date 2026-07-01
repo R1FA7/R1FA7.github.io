@@ -1,77 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ========== Theme Toggle ==========
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon   = document.getElementById("theme-icon");
+  const html        = document.documentElement;
+
+  function applyTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    themeIcon.className = theme === "dark" ? "lni lni-sun-1" : "lni lni-moon-half-right-5";
+  }
+
+  // Default to dark; restore from localStorage if previously set
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener("click", () => {
+    const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+
+  // ========== Active nav link on scroll ==========
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("section");
 
-  // set the active link based on scroll position
   function setActiveLinkOnScroll() {
-    let scrollPosition = window.scrollY + 200; 
+    const scrollPos = window.scrollY + 200;
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionBottom = sectionTop + section.offsetHeight;
-
-      // current scroll position is within this section's range?
-      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-        // Remove the active class from all links
-        navLinks.forEach(nav => nav.classList.remove("active-link"));
-
-        // Add the active class to the link corresponding to this section
-        const activeLink = document.querySelector(`.nav-link[href="#${section.id}"]`);
-        if (activeLink) {
-          activeLink.classList.add("active-link");
-        }
+      const top    = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      if (scrollPos >= top && scrollPos < bottom) {
+        navLinks.forEach((nav) => nav.classList.remove("active-link"));
+        const link = document.querySelector(`.nav-link[href="#${section.id}"]`);
+        if (link) link.classList.add("active-link");
       }
     });
   }
-    document.getElementById('nav-toggle').addEventListener('click', function() {
-    document.getElementById('nav-menu').classList.toggle('active');
+
+  // ========== Mobile nav toggle ==========
+  document.getElementById("nav-toggle").addEventListener("click", () => {
+    document.getElementById("nav-menu").classList.toggle("active");
   });
 
-  //remove hint 
-  window.addEventListener('scroll', function () {
-    const scrollHint = document.querySelector('.scroll-down');
+  // Close mobile menu when a link is clicked
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      document.getElementById("nav-menu").classList.remove("active");
+    });
+  });
+
+  // ========== Scroll hint fade ==========
+  const scrollHint = document.querySelector(".scroll-down");
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 10) {
-      scrollHint.style.opacity = '0';
-      scrollHint.style.pointerEvents = 'none';
+      scrollHint.style.opacity = "0";
+      scrollHint.style.pointerEvents = "none";
     } else {
-      scrollHint.style.opacity = '1';
-      scrollHint.style.pointerEvents = 'auto';
+      scrollHint.style.opacity = "1";
+      scrollHint.style.pointerEvents = "auto";
     }
   });
 
+  // ========== Smooth scroll on nav link click ==========
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const sectionId = e.currentTarget.getAttribute("href").substring(1);
+      const target    = document.getElementById(sectionId);
+      if (!target) return;
 
-  // Call scroll to update active link based on scroll position
-  window.addEventListener("scroll", setActiveLinkOnScroll);
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  // Initialize
-  document.querySelector('.nav-link[href="#about"]').classList.add('active-link');
-
-  //handle the click on navigation links
-  navLinks.forEach(link => {
-    link.addEventListener("click", (event) => {
-      // Prevent default behavior of the anchor tag
-      event.preventDefault();
-
-      // Get the section to scroll to
-      const sectionId = event.target.getAttribute("href").substring(1);
-      const section = document.getElementById(sectionId);
-
-      // Smooth scroll to the section
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start", 
-      });
-
-      // Delay the addition of the active class to allow for smooth scrolling to complete
       setTimeout(() => {
-        // Remove the active class from all links
-        navLinks.forEach(nav => nav.classList.remove("active-link"));
-
-        // Add the active class to the clicked link
-        event.target.classList.add("active-link");
+        navLinks.forEach((nav) => nav.classList.remove("active-link"));
+        e.currentTarget.classList.add("active-link");
       }, 300);
     });
   });
 
-  // page loads Now!!!
+  // ========== Scroll event & init ==========
+  window.addEventListener("scroll", setActiveLinkOnScroll);
+  document.querySelector('.nav-link[href="#about"]').classList.add("active-link");
   setActiveLinkOnScroll();
+
+  // ========== Footer year ==========
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
